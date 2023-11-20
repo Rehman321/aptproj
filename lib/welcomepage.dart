@@ -1,3 +1,4 @@
+import 'package:aptproj/widgets/large-text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 

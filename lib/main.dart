@@ -1,3 +1,5 @@
+import 'package:aptproj/detail-page.dart';
+import 'package:aptproj/homepage.dart';
 import 'package:aptproj/main_page.dart';
 import 'package:aptproj/welcomepage.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainPage(),
+      home: DetailPage(),
     );
   }
 }

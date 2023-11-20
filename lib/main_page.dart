@@ -35,6 +35,7 @@ class _MainPageState extends State<MainPage> {
         showUnselectedLabels: true,
         unselectedItemColor: Colors.grey,
         selectedItemColor: Colors.black,
+        elevation: 0,
         onTap: pageShifter,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.apps_rounded),label:"home"),

@@ -12,8 +12,15 @@ class _SearchState extends State<Search> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(
-          "Search Page"
+        child: Container(
+          padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+          child: TextField(
+            obscureText: true,
+            decoration: const InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: "Search",
+            ),
+          ),
         ),
       ),
     );

@@ -1,6 +1,11 @@
+import 'package:aptproj/cubit/app_cubits.dart';
+import 'package:aptproj/homepage.dart';
 import 'package:aptproj/widgets/large-text.dart';
+import 'package:aptproj/widgets/responsive-button.dart';
+import 'package:aptproj/widgets/small-text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Myhome extends StatefulWidget {
   const Myhome({super.key});
@@ -11,7 +16,7 @@ class Myhome extends StatefulWidget {
 
 class _MyhomeState extends State<Myhome> {
   List images =[
-    "welcome-img1.jpg",
+    "welcome-img3.jpg",
     "welcome-img2.jpg",
     "welcome-img3.jpg",
   ];
@@ -20,7 +25,7 @@ class _MyhomeState extends State<Myhome> {
     return Scaffold(
       body: PageView.builder(
           itemCount: images.length,
-          scrollDirection: Axis.horizontal,
+          scrollDirection: Axis.vertical,
           itemBuilder:(context,index){
             return Container(
               width: double.infinity,
@@ -34,16 +39,32 @@ class _MyhomeState extends State<Myhome> {
                 )
               ),
               child: Container(
-                margin: const EdgeInsets.only(top:400),
+                margin: const EdgeInsets.only(top:150,left: 20,right: 20),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AppLargeText(text: "Trip"),
+                        AppText(text: "Let's Discover"),
+                        SizedBox(height: 20,),
+                        GestureDetector(
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
+                          },
+                          child: Container(
+
+                              child: ResponsvieButton(width: 120,)),
+                        )
+                      ],
+                    ),
+                    Column(
                       children: List.generate(3, (indexDots){
                        return Container(
-                         margin: const EdgeInsets.only(left:9),
-                         height: 8,
-                         width:index==indexDots?25:8,
+                         margin: const EdgeInsets.only(left:120,),
+                         height: index==indexDots?25:8,
+                         width:8,
                          decoration: BoxDecoration(
                            borderRadius: BorderRadius.circular(10),
                            color:index==indexDots?Colors.grey:Colors.white
@@ -55,8 +76,9 @@ class _MyhomeState extends State<Myhome> {
                 ),
               ),
             );
+      }
+      ),
 
-      }),
     );
   }
 }

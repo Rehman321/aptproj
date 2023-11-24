@@ -1,5 +1,6 @@
 import 'package:aptproj/widgets/large-text.dart';
 import 'package:aptproj/widgets/small-text.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,12 @@ var images = {
             padding: const EdgeInsets.only(top: 20,left: 20),
             child: Row(
               children: [
-                Icon(Icons.menu,color: Colors.black, size: 30,),
+                IconButton(
+                  onPressed: ()async{
+                    await FirebaseAuth.instance.signOut();
+                  },
+                  icon: const Icon(Icons.logout),
+                ),
                 Expanded(child: Container()),
                 Container(
                   margin: const EdgeInsets.only(right: 20),
@@ -93,7 +99,7 @@ var images = {
                     borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
                   image: AssetImage(
-                  "img/welcome-img3.jpg"
+                  "img/welcome-img2.jpg"
                   ),
                    fit: BoxFit.cover,
                     )
